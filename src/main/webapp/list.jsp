@@ -29,7 +29,7 @@
             <td>${customer.getAddress()}</td>
             <td>${customer.getEmail()}</td>
             <td>${customer.getPhone()}</td>
-<%--            <td>${customer.getAddress()}</td>--%>
+            <td>${customer.getProvince()}</td>
 
         </tr>
     </c:forEach>

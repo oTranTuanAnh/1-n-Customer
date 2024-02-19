@@ -1,5 +1,8 @@
 package controller;
 
+import service.CustomerService;
+import service.Icustomer;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +13,7 @@ import java.io.IOException;
 
 @WebServlet(urlPatterns = "/customers")
 public class CustomerServlet extends HttpServlet {
+    Icustomer icustomer = new CustomerService();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String act = req.getParameter("action");
@@ -29,6 +33,7 @@ public class CustomerServlet extends HttpServlet {
     private void showList(HttpServletRequest req, HttpServletResponse resp) {
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("list.jsp");
         try {
+            req.setAttribute("customer",icustomer.findAll());
             requestDispatcher.forward(req, resp);
         } catch (ServletException e) {
             throw new RuntimeException(e);

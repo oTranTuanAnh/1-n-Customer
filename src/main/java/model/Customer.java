@@ -6,8 +6,18 @@ public class Customer {
     private String address;
     private String email;
     private String phone;
+    private String province;
 
     public Customer() {
+    }
+
+    public Customer(int id, String name, String address, String email, String phone, String province) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.email = email;
+        this.phone = phone;
+        this.province = province;
     }
 
     public Customer(int id, String name, String address, String email, String phone) {
@@ -16,6 +26,14 @@ public class Customer {
         this.address = address;
         this.email = email;
         this.phone = phone;
+    }
+
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
     }
 
     public int getId() {
