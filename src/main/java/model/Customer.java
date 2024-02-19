@@ -20,6 +20,13 @@ public class Customer {
         this.province = province;
     }
 
+    public Customer(String name, String address, String email, String phone) {
+        this.name = name;
+        this.address = address;
+        this.email = email;
+        this.phone = phone;
+    }
+
     public Customer(int id, String name, String address, String email, String phone) {
         this.id = id;
         this.name = name;

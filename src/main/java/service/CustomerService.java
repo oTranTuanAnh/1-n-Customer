@@ -12,6 +12,7 @@ import java.util.List;
 
 public class CustomerService implements Icustomer{
     public static final String SELECT_FROM_CUSTOMER = "select * from customer;";
+    public static final String INSERT_INTO_CUSTOMER_NAME_ADDRESS_EMAIL_PHONE_PROVINCE_ID_VALUES = "insert into customer(name, address, email, phone, province_id) values (?,?, ?,?, ?);";
     Iprovince iprovince = new ProvinceService();
     Connection connectionJDBC = ConnectionJDBC.getConnection();
 
@@ -57,5 +58,21 @@ public class CustomerService implements Icustomer{
     @Override
     public void edit(int id) {
 
+    }
+
+    @Override
+    public void save(Customer c, int p_id) {
+        try {
+            PreparedStatement statement = connectionJDBC.prepareStatement(INSERT_INTO_CUSTOMER_NAME_ADDRESS_EMAIL_PHONE_PROVINCE_ID_VALUES);
+            statement.setString(1, c.getName());
+            statement.setString(2, c.getAddress());
+            statement.setString(3, c.getEmail());
+            statement.setString(4, c.getPhone());
+            statement.setString(5, String.valueOf(p_id));
+            statement.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

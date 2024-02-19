@@ -10,9 +10,13 @@
 <html>
 <head>
     <title>Customer</title>
+
 </head>
+
 <body>
 <h1>Customer List</h1>
+<button id="btn"><a href="/customers?action=create">Create new customer</a></button>
+<br>
 <table border="1">
     <tr>
         <td>ID</td>
